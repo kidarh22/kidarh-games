@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kidarh Games</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Dark Theme & Custom Styles */
+    body {
+      background-color: #121212;
+      color: #ffffff;
+      font-family: 'Arial', sans-serif;
+    }
+    h1{
+        color: black;
+        font-size: 5em;
+        font-family: 'Times New Roman', Times, serif;
+        text-shadow: 0px 20px 40px rgb(28, 203, 28);
+    }
+
+    .navbar {
+      background-color: #333;
+      position: fixed; /* Keeps the navbar fixed at the top */
+    top: 0; /* Aligns it to the top */
+    left: 0; /* Aligns it to the left */
+    right: 0; /* Aligns it to the right */
+    z-index: 1000; /* Ensures it stays above other content */
+    }
+
+    .navbar-nav .nav-link {
+      color: #fff !important;
+    }
+
+    .carousel-inner img {
+      max-height: 400px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .carousel-item {
+      transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    }
+
+    .grid-container {
+        display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin: 0; /* Set margin to 0 for full width */
+    padding: 0; /* Set padding to 0 if any */
+    width: 100%; /* Set width to 100 */
+    }
+
+    .game-card {
+      background-color: #1f1f1f;
+      border: 1px solid #444;
+      padding: 10px;
+      text-align: center;
+      border-radius: 10px;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      position: relative;
+    }
+
+    .game-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px 5px #ff8a00;
+    }
+
+    .game-card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    .game-title {
+      font-size: 14px;
+      font-weight: bold;
+      margin: 10px 0;
+      color: #f5f5f5;
+    }
+
+    .game-price {
+      color: #90ee90;
+    }
+
+    .luminous {
+      background-color: #ff8a00;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      font-size: 12px;
+      transition: box-shadow 0.5s ease-in-out;
+    }
+    .luminous:hover {
+      box-shadow: 0 0 20px 10px #ffeb3b;
+    }
+
+    .footer {
+      background-color: #333;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .search-bar {
+      background-color: #333;
+      color: #fff;
+      border: 1px solid #555;
+    }
+
+    .search-bar::placeholder {
+      color: #bbb;
+    }
+
+    @media (max-width: 768px) {
+      .video-container {
+        order: 2;
+      }
+    }
+    .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .game-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .game-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 138, 0, 0.5);
+        }
+
+        .game-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .game-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #f5f5f5;
+        }
+
+        .game-price {
+            color: #90ee90;
+        }
+
+        .luminous {
+            background-color: #ff8a00;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 12px;
+            transition: box-shadow 0.5s ease-in-out;
+        }
+
+        .luminous:hover {
+            box-shadow: 0 0 20px 10px #ffeb3b;
+        }
+           /* Background Video */
+           .bg-video {
+            position: fixed; /* Fixed position */
+            top: 0;
+            left: 0;
+            width: 100vw; /* Full width */
+            height: 100vh; /* Full height */
+            object-fit: cover; /* Cover entire area */
+            z-index: -1; /* Place behind other content */
+        }
+        h41{
+            color: black;
+            text-shadow: 0px 10px 20px rgb(12, 154, 12);
+            font-size: 5em;
+            font-family: 'Times New Roman', Times, serif;
+            justify-content: center;
+            display: flex;
+        }
+        .dropdown-menu a{
+          color: black;
+          text-decoration: none;
+        }
+        .dropdown-menu a:hover{
+          background-color: black;
+          color: white;
+        }
+  </style>
+</head>
+
+<body>
+
+    <!-- Background Video -->
+    <video class="bg-video" autoplay loop muted>
+        <source src="y2mate.com - EA SPORTS FC 25  Official Reveal Trailer_1080.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Game Store</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="Discover.html">Discover</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarGenres" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Genres
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarGenres">
+              <li><a  href="Action.html" data-genre="action">Action</a></li>
+              <li><a  href="adventure.html" data-genre="adventure">Adventure</a></li>
+              <li><a  href="RPG.html" data-genre="rpg">RPG</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input id="searchInput" class="form-control me-2 search-bar" type="search" placeholder="Search games..." aria-label="Search">
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Carousel Section -->
+  <div id="gameCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://i.pinimg.com/originals/2d/66/0f/2d660fabd2634f912188bb30a1de0c32.gif" class="d-block w-100" alt="Cyberpunk 2077">
+      </div>
+      <div class="carousel-item">
+        <img src="https://i.pinimg.com/originals/c4/bd/a1/c4bda1620e02813e1af40286b2eb7a37.gif" class="d-block w-100" alt="The Witcher 3">
+      </div>
+      <div class="carousel-item">
+        <img src="https://i.pinimg.com/originals/98/b6/fe/98b6fe7b40485de22b9e2691b4cb53f5.gif" class="d-block w-100" alt="Halo Infinite">
+      </div>
+    </div>
+  </div>
+
+  <!-- Content Section: Grid and Video -->
+  <div class="container my-5">
+    <div class="row">
+      <!-- Video Section -->
+      <div class="col-lg-3 col-md-12 video-container">
+        <h4 class="mb-3">Latest Game Trailer</h4>
+        <div class="ratio ratio-16x9">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/S6cBAZmgh5s?si=C5-b6ZrkfUo5YhvZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <!-- Games Grid Section -->
+      <div class="col-lg-9 col-md-12">
+        <h41 class="mb-3">Featured Games</h41>
+        <div id="gamesGrid" class="grid-container">
+          <!-- Game Cards -->
+          <div class="game-card" data-name="Cyberpunk 2077" data-genre="action">
+            <img src="https://i.pinimg.com/originals/2d/66/0f/2d660fabd2634f912188bb30a1de0c32.gif" alt="Cyberpunk 2077">
+            <div class="game-title">Cyberpunk 2077</div>
+            <div class="game-price">Enjoy going into the future in cyber punk</div>
+            <a href="https://store.epicgames.com/en-US/p/cyberpunk-2077" class="btn btn-warning mt-2">Download</a>
+            <div class="luminous">Hot</div>
+          </div>
+
+          <div class="game-card" data-name="The Witcher 3" data-genre="rpg">
+            <img src="https://i.pinimg.com/originals/d6/60/7c/d6607c06d311eb6ad436e1a457b25f0f.gif" alt="The Witcher 3">
+            <div class="game-title">The Witcher 3</div>
+            <div class="game-price">Enjoy slashing through enemys in the witcher</div>
+            <a href="https://store.epicgames.com/en-US/p/the-witcher-3-wild-hunt" class="btn btn-warning mt-2">Download</a>
+          </div>
+
+          <div class="game-card" data-name="Red Dead Redemption 2" data-genre="adventure">
+            <img src="https://i.pinimg.com/originals/78/f7/7f/78f77f01a0530144a9865017029bfa51.gif" alt="Red Dead Redemption 2">
+            <div class="game-title">Red Dead Redemption 2</div>
+            <div class="game-price">Welcome to the wild wild wild west</div>
+            <a href="https://store.epicgames.com/en-US/p/red-dead-redemption" class="btn btn-warning mt-2">Download</a>
+          </div>
+
+          <div class="game-card" data-name="Assassin's Creed Valhalla" data-genre="adventure">
+            <img src="https://i.pinimg.com/originals/0c/92/60/0c926090afa10b0a8be082c0eb625eda.gif" alt="AC Valhalla">
+            <div class="game-title">Assassin's Creed Valhalla</div>
+            <div class="game-price">Be a sleek and silent killer</div>
+            <a href="https://store.epicgames.com/en-US/p/assassins-creed-valhalla--complete-edition" class="btn btn-warning mt-2">Download</a>
+            <div class="luminous">New</div>
+          </div>
+          <div class="game-card" data-name="WWE2K24" data-genre="adventure">
+            <img src="https://i.pinimg.com/originals/11/1a/66/111a6689cfd82a9bd8b2b551e94d3bd9.gif" alt="AC Valhalla">
+            <div class="game-title">WWE2K24</div>
+            <div class="game-price">Become a wwe superstar</div>
+            <a href="https://store.steampowered.com/app/2315690/WWE_2K24/" class="btn btn-warning mt-2">Download</a>
+            <div class="luminous">New</div>
+          </div>
+          <div class="game-card" data-name="EAFC 25" data-genre="adventure">
+            <img src="https://i.pinimg.com/originals/f1/ef/e1/f1efe1a622cb206b45e21d1df98f37aa.gif" alt="AC Valhalla">
+            <div class="game-title">EA FC 25</div>
+            <div class="game-price">Play with your favorite soccer team and lead them to victory</div>
+            <a href="https://store.epicgames.com/en-US/p/ea-sports-fc-25" class="btn btn-warning mt-2">Download</a>
+            <div class="luminous">New</div>
+          </div>
+          <div class="game-card" data-name="NBA2K25" data-genre="adventure">
+            <img src="https://i.pinimg.com/originals/d9/88/87/d988874e40e8d6a6be28dca90860da0d.gif" alt="AC Valhalla">
+            <div class="game-title">NBA2K25</div>
+            <div class="game-price">Throw some hoops and dominate the NBA with your favorite team</div>
+            <a href="https://store.steampowered.com/app/2878980/NBA_2K25/" class="btn btn-warning mt-2">Download</a>
+            <div class="luminous">New</div>
+          </div>
+          <div class="game-card" data-name="Mortal Kombat" data-genre="adventure">
+            <img src="https://i.pinimg.com/originals/36/0d/7b/360d7b36de6b136004501cc9a4d69592.gif" alt="AC Valhalla">
+            <div class="game-title">Mortal Kombat</div>
+            <div class="game-price">Defend Your realms</div>
+            <a href="https://store.epicgames.com/en-US/p/mortal-kombat-1" class="btn btn-warning mt-2">Download</a>
+            <div class="luminous">New</div>
+          </div>
+          <div class="game-card" data-name="Street Fighter" data-genre="adventure">
+            <img src="https://i.pinimg.com/originals/8e/f3/03/8ef303108e43231da02da11fb1a2981d.gif" alt="AC Valhalla">
+            <div class="game-title">Street Fighter</div>
+            <div class="game-price">engage in amazing arcade style action packed game</div>
+            <a href="https://store.steampowered.com/app/1364780/Street_Fighter_6/" class="btn btn-warning mt-2">Download</a>
+            <div class="luminous">New</div>
+          </div>
+          <div class="game-card" data-name="Tekken 8" data-genre="adventure">
+            <img src="https://i.pinimg.com/enabled_lo/474x/c6/59/b3/c659b365cce7c731ae230e4c0ddb63ae.jpg" alt="AC Valhalla">
+            <div class="game-title">Tekken 8</div>
+            <div class="game-price">Another arcade style game fr you to check out</div>
+            <a href="https://store.steampowered.com/app/1778820/TEKKEN_8/" class="btn btn-warning mt-2">Download</a>
+            <div class="luminous">New</div>
+          </div>
+          <div class="game-card" data-name=" Marvel Guardians of the galaxy" data-genre="adventure">
+            <img src="https://i.pinimg.com/originals/62/e1/2a/62e12a8efa6dae45c0e11b9b03bd72d5.gif" alt="AC Valhalla">
+            <div class="game-title">Marvel Guardians of the galaxy</div>
+            <div class="game-price">Become a guardian and save the galaxy &#128513;</div>
+            <a href="https://store.epicgames.com/en-US/p/marvels-guardians-of-the-galaxy" class="btn btn-warning mt-2">Download</a>
+            <div class="luminous">New</div>
+          </div>
+          <div class="game-card" data-name="GTA V" data-genre="adventure">
+            <img src="https://i.pinimg.com/enabled_lo/236x/a1/c7/fc/a1c7fcc4a98091aa4dfbd9e3ff07e98b.jpg" alt="AC Valhalla">
+            <div class="game-title">GTA V</div>
+            <div class="game-price">Dive into the vast world of Grand Theft Auto</div>
+            <a href="https://store.epicgames.com/en-US/p/grand-theft-auto-v" class="btn btn-warning mt-2">Download</a>
+            <div class="luminous">New</div>
+          </div>
+          <div class="game-card" data-name="Spider-Man" data-genre="adventure">
+            <img src="https://i.pinimg.com/originals/22/36/c0/2236c0c8e974d3ba23081b2c9e90897d.gif" alt="AC Valhalla">
+            <div class="game-title">Spider-Man</div>
+            <div class="game-price">Live out the fun and dangerous double life of Peter Parker AKA Spider-Man</div>
+            <a href="https://store.epicgames.com/en-US/p/marvels-spider-man-remastered" class="btn btn-warning mt-2">Download</a>
+            <div class="luminous">New</div>
+          </div>
+          <div class="game-card" data-name="Call of Duty" data-genre="adventure">
+            <img src="https://i.pinimg.com/originals/ae/d2/e5/aed2e5f03b387d4c276f3b308c1e7d46.gif" alt="AC Valhalla">
+            <div class="game-title">Call of Duty_Black_Ops_III</div>
+            <div class="game-price">Protect and defend your country on the battlefield in call of duty</div>
+            <a href="https://store.steampowered.com/app/311210/Call_of_Duty_Black_Ops_III/?curator_clanid=42355870" class="btn btn-warning mt-2">Download</a>
+            <div class="luminous">New</div>
+          </div>
+          <div class="game-card" data-name="God of war" data-genre="adventure">
+            <img src="https://i.pinimg.com/236x/0e/84/8c/0e848caaab7da6582626d6b04126c3f7.jpg" alt="AC Valhalla">
+            <div class="game-title">God Of War</div>
+            <div class="game-price">Become a god and destroy your enemies on the battlefield</div>
+            <a href="https://store.epicgames.com/en-US/p/god-of-war" class="btn btn-warning mt-2">Download</a>
+            <div class="luminous">New</div>
+          </div>
+          <div class="game-card" data-name="Injustice: gods Among Us" data-genre="adventure">
+            <img src="https://i.pinimg.com/236x/af/db/12/afdb121f7fa6c78082c4455b768b4f28.jpg" alt="AC Valhalla">
+            <div class="game-title">Injustice: gods Among Us</div>
+            <div class="game-price">Are you friend or foe?</div>
+            <a href="https://store.steampowered.com/app/242700/Injustice_Gods_Among_Us_Ultimate_Edition?snr=1_7_15__13" class="btn btn-warning mt-2">Download</a>
+            <div class="luminous">New</div>
+          </div>
+          <div class="game-card" data-name="Farcry" data-genre="adventure">
+            <img src="https://i.pinimg.com/originals/9e/e6/1e/9ee61ece1d693b34f5bf8a8418b24a90.gif" alt="AC Valhalla">
+            <div class="game-title">Farcry</div>
+            <div class="game-price">Be your own Boss</div>
+            <a href="https://store.epicgames.com/en-US/p/far-cry-6" class="btn btn-warning mt-2">Download</a>
+            <div class="luminous">New</div>
+          </div>
+          <div class="game-card" data-name="Need for Speed" data-genre="adventure">
+            <img src="https://i.pinimg.com/enabled_lo/236x/50/07/5c/50075c8411fc3abd34f1382fe1e4959d.jpg" alt="AC Valhalla">
+            <div class="game-title">Need for speed</div>
+            <div class="game-price">Race to the finish line!! &#128077;</div>
+            <a href="https://store.epicgames.com/en-US/p/need-for-speed-heat-ccbf8d" class="btn btn-warning mt-2">Download</a>
+            <div class="luminous">New</div>
+          </div>
+          <div class="game-card" data-name="The last of us" data-genre="adventure">
+            <img src="https://i.pinimg.com/474x/cb/d0/81/cbd081f65853f0897813a6e4887c9874.jpg" alt="AC Valhalla">
+            <div class="game-title">The last of us</div>
+            <div class="game-price">Stick together to survive the apocalypse</div>
+            <a href="https://store.epicgames.com/en-US/p/the-last-of-us-part-1--digital-deluxe-edition" class="btn btn-warning mt-2">Download</a>
+            <div class="luminous">New</div>
+          </div>
+          <div class="game-card" data-name="Efootball" data-genre="adventure">
+            <img src="https://i.pinimg.com/enabled_lo/236x/95/f6/73/95f673819d645b062ad8cbe315e1d49a.jpg" alt="AC Valhalla">
+            <div class="game-title">Efootball</div>
+            <div class="game-price">Get your soccer boots ready and dominate your opponents</div>
+            <a href="https://store.steampowered.com/app/1665460/eFootball/" class="btn btn-warning mt-2">Download</a>
+            <div class="luminous">New</div>
+          </div>
+          <div class="game-card" data-name="Uncharted" data-genre="adventure">
+            <img src="https://i.pinimg.com/236x/e3/f3/eb/e3f3eb73c9d41a74cea76fa952df969d.jpg" alt="AC Valhalla">
+            <div class="game-title">Uncharted</div>
+            <div class="game-price">Explore the jungle</div>
+            <a href="https://store.epicgames.com/en-US/p/uncharted-legacy-of-thieves-collection" class="btn btn-warning mt-2">Download</a>
+            <div class="luminous">New</div>
+          </div> <div class="game-card" data-name="Rocket league" data-genre="adventure">
+            <img src="https://i.pinimg.com/236x/a5/91/f9/a591f986e9e7dd2e1c8004e642249edc.jpg" alt="AC Valhalla">
+            <div class="game-title">Rocket league</div>
+            <div class="game-price">Race with friends</div>
+            <a href="https://store.epicgames.com/en-US/p/rocket-league" class="btn btn-warning mt-2">Download</a>
+            <div class="luminous">New</div>
+          </div>
+          <div class="game-card" data-name="Black myth: Wukong" data-genre="adventure">
+            <img src="https://i.pinimg.com/originals/65/f3/66/65f36628ed3fc877c6faeaf3614e2516.gif" alt="AC Valhalla">
+            <div class="game-title">Black Myth:Wukong</div>
+            <div class="game-price">Set out as the chosen one in this rpg game rooted in chinese culture</div>
+            <a href="https://store.epicgames.com/en-US/p/black-myth-wukong-87a72b" class="btn btn-warning mt-2">Download</a>
+            <div class="luminous">New</div>
+          </div>
+          <div class="game-card" data-name="Tom clancy's rainbow 6" data-genre="adventure">
+            <img src="https://i.pinimg.com/originals/00/40/4b/00404bdb6813af29c8a14638467f76c2.gif" alt="AC Valhalla">
+            <div class="game-title">Tom clancy's rainbow 6</div>
+            <div class="game-price">KNow your position and protect your squad</div>
+            <a href="https://store.epicgames.com/en-US/p/rainbow-six-vegas" class="btn btn-warning mt-2">Download</a>
+            <div class="luminous">New</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Game Recommendation Section with Carousel -->
+<div class="container my-5">
+    <h4 class="mb-3">Kidarh games Gamer's Recommendations</h4>
+    <div id="recommendationCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+  
+        <!-- First Carousel Item -->
+        <div class="carousel-item active">
+          <div class="row">
+            <div class="col-lg-4 col-md-6">
+              <img src="https://i.pinimg.com/474x/39/4d/58/394d58da3c66e41773439ca33ca2dbc2.jpg" alt="A Plague Tale: Requiem" class="img-fluid rounded">
+            </div>
+            <div class="col-lg-8 col-md-6">
+              <h5>Marvel rivals</h5>
+              <div class="d-flex mb-2">
+                <span class="badge bg-secondary me-2">Adventure</span>
+                <span class="badge bg-secondary me-2">Action</span>
+                <span class="badge bg-secondary me-2">Exploration</span>
+                <span class="badge bg-secondary me-2">Action-Adventure</span>
+              </div>
+              <p>"This entry in the Marvel rivals series is a great improvement on the previous one. There are less alchemical utilities, but the introduction of a new weapon and new ways to use the utilities makes it more engaging."</p>
+              <button class="btn btn-outline-warning">
+              <div class="mt-3">
+                <span class="text-muted">$49.99</span> <span class="text-warning ms-2">-12%</span> <span class="text-success ms-2">$43.89</span>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Second Carousel Item -->
+        <div class="carousel-item">
+          <div class="row">
+            <div class="col-lg-4 col-md-6">
+              <img src="https://i.pinimg.com/236x/69/57/09/695709385bf0f537b95d63e069b6ef16.jpg" alt="Monster Hunter World" class="img-fluid rounded">
+            </div>
+            <div class="col-lg-8 col-md-6">
+              <h5>WWE 2K24</h5>
+              <div class="d-flex mb-2">
+                <span class="badge bg-secondary me-2">RPG</span>
+                <span class="badge bg-secondary me-2">Action</span>
+                <span class="badge bg-secondary me-2">Exploration</span>
+                <span class="badge bg-secondary me-2">Multiplayer</span>
+              </div>
+              <p>"WWE 2K24 offers one of the richest and most rewarding combat systems in gaming, with an emphasis on preparation and strategy."</p>
+              <button class="btn btn-outline-warning">
+              <div class="mt-3">
+                <span class="text-muted">$59.99</span> <span class="text-warning ms-2">-20%</span> <span class="text-success ms-2">$47.99</span>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Third Carousel Item -->
+        <div class="carousel-item">
+          <div class="row">
+            <div class="col-lg-4 col-md-6">
+              <img src="https://i.pinimg.com/enabled_lo/474x/7a/f8/b6/7af8b6af3550184e8043da064c9e4c0c.jpg" alt="Cyberpunk 2077" class="img-fluid rounded">
+            </div>
+            <div class="col-lg-8 col-md-6">
+              <h5>Black Myth: Wukong</h5>
+              <div class="d-flex mb-2">
+                <span class="badge bg-secondary me-2">RPG</span>
+                <span class="badge bg-secondary me-2">Open World</span>
+                <span class="badge bg-secondary me-2">Action</span>
+                <span class="badge bg-secondary me-2">Sci-Fi</span>
+              </div>
+              <p>"Want to learn about chinese culture while having fun playing as the main character? try black myth: wukong"</p>
+              <button class="btn btn-outline-warning">
+              <div class="mt-3">
+                <span class="text-muted">$59.99</span> <span class="text-warning ms-2">-30%</span> <span class="text-success ms-2">$41.99</span>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+  
+      <!-- Carousel Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#recommendationCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#recommendationCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+  <div class="container">
+    <h1 class="text-center my-4">COMING SOON!!!</h1>
+    <div class="grid-container">
+        <!-- Game Cards -->
+        <div class="game-card">
+            <img src="https://i.pinimg.com/originals/79/63/9f/79639f62b76e907de640bab60d8a1059.gif" alt="Cyberpunk 2077">
+            <div class="game-title">Watch Dogs</div>
+            <div class="game-price">$59.99</div>
+            <div class="luminous">Hot</div>
+        </div>
+
+        <div class="game-card">
+            <img src="https://i.pinimg.com/236x/d4/8f/ec/d48fecef844dc307e9191c29a2ac7a8f.jpg" alt="The Witcher 3">
+            <div class="game-title">Invincible presents: Atom Eve</div>
+            <div class="game-price">$39.99</div>
+        </div>
+
+        <div class="game-card">
+            <img src="https://i.pinimg.com/originals/9c/73/5a/9c735a2d65d57194c3c028558fb6d62e.gif">
+            <div class="game-title">Deadpool</div>
+            <div class="game-price">$49.99</div>
+        </div>
+
+        <div class="game-card">
+            <img src="https://i.pinimg.com/enabled_lo/236x/ee/0a/8f/ee0a8f16c1262950339dc6c1e2a54eff.jpg" alt="Assassin's Creed Valhalla">
+            <div class="game-title">Warhammer 40,000: Space Marine</div>
+            <div class="game-price">$29.99</div>
+        </div>
+
+        <div class="game-card">
+            <img src="https://i.pinimg.com/enabled_lo/474x/95/42/be/9542be515cc5f018f166c1a280e93ce6.jpg" alt="Halo Infinite">
+            <div class="game-title">Halo Infinite</div>
+            <div class="game-price">$69.99</div>
+        </div>
+
+        <div class="game-card">
+            <img src="https://i.pinimg.com/474x/70/fd/0b/70fd0bdb0e00458fb6329d10c46910ca.jpg" alt="Doom Eternal">
+            <div class="game-title">Doom Eternal</div>
+            <div class="game-price">$39.99</div>
+        </div>
+        <div class="game-card">
+            <img src="https://i.pinimg.com/originals/e8/35/43/e8354357d65b48bb91fc22304700b690.gif" alt="Doom Eternal">
+            <div class="game-title">Fortnite</div>
+            <div class="game-price">$15.56</div>
+        </div>
+        <div class="game-card">
+            <img src="https://i.pinimg.com/236x/16/00/c2/1600c20cb9139eda5221d42b58af1072.jpg" alt="Doom Eternal">
+            <div class="game-title">Tomb raider</div>
+            <div class="game-price">$59.99</div>
+        </div>
+        <div class="game-card">
+            <img src="https://i.pinimg.com/236x/3d/68/ef/3d68ef65e330086086e143fceddaeea1.jpg" alt="Doom Eternal">
+            <div class="game-title">Resident evil 5</div>
+            <div class="game-price">$40.99</div>
+        </div>
+        <div class="game-card">
+            <img src="https://i.pinimg.com/236x/bf/f4/ee/bff4ee8e9227b698e09cc277079cb527.jpg" alt="Doom Eternal">
+            <div class="game-title">Ghost of Tushima</div>
+            <div class="game-price">$19.29</div>
+        </div>
+    </div>
+</div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2024 Kidarh Games.co. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Search functionality
+    document.getElementById('searchInput').addEventListener('input', function () {
+      const searchQuery = this.value.toLowerCase();
+      const gameCards = document.querySelectorAll('.game-card');
+
+      gameCards.forEach(function (card) {
+        const gameName = card.getAttribute('data-name').toLowerCase();
+        if (gameName.includes(searchQuery)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+
+    // Genre filter functionality
+    const genreFilters = document.querySelectorAll('.genre-filter');
+    genreFilters.forEach(function (filter) {
+      filter.addEventListener('click', function (event) {
+        event.preventDefault();
+        const selectedGenre = this.getAttribute('data-genre');
+        const gameCards = document.querySelectorAll('.game-card');
+
+        gameCards.forEach(function (card) {
+          const gameGenre = card.getAttribute('data-genre');
+
+          if (selectedGenre === 'all' || gameGenre === selectedGenre) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap JS (necessary for the carousel to work) -->
+</body>
+
+</html>

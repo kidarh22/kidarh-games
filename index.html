@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kidarh Games</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js"></script>
+    <script>
+        // Import the functions you need from the SDKs you need
+    import { initializeApp } from "firebase/app";
+    import { getAnalytics } from "firebase/analytics";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+    
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyBs7wLfHelW2zqPSYjw_wlPft6ag2ozuGc",
+      authDomain: "myauthapp-928ad.firebaseapp.com",
+      projectId: "myauthapp-928ad",
+      storageBucket: "myauthapp-928ad.appspot.com",
+      messagingSenderId: "243099483673",
+      appId: "1:243099483673:web:4d1a8532f381e1fb4eb488",
+      measurementId: "G-NL3K2WXYBD"
+    };
+    
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const auth = firebase.auth();
+    function logIn() {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  auth.signInWithEmailAndPassword(email, password)
+    .then(userCredential => {
+      // Signed in 
+      const user = userCredential.user;
+      console.log('User logged in:', user);
+    })
+    .catch(error => {
+      console.error('Error during login:', error.message);
+    });
+}
+
+</script>
+    
+      
+</head>
+<body>
+
+    <div class="video-container">
+    <!--  1st Background Video -->
+    <video  width="100%" height="100%" autoplay muted loop id="bg-video">
+        <source src="y2mate.com - WWE 2K24  Announce Trailer  2K_1080p.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+     <!--  2nd Background Video -->
+     <video  width="100%" height="100%" autoplay muted loop id="bg-video">
+        <source src="y2mate.com - EA SPORTS FC 25  Official Reveal Trailer_1080.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+     <!--  3rd Background Video -->
+     <video  width="100%" height="100%" autoplay muted loop id="bg-video">
+        <source src="y2mate.com - Mortal Kombat 1  Official Announcement Trailer_1080.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+
+    <!-- Header with Logo and Navbar -->
+
+    <header id="mainheader">
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="create.html">Creat an account</a></li> 
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="NEWS.html">NEWS</a></li>
+                <li><a href="Profile.html">Profile</a></li>
+                <li><a href="com.html">Community</a></li>
+                <li><a href="Leader.html">Leaderboard</a></li>
+               
+            </ul>
+            <div class="logo">
+                <img src="company pic.jpg" alt="Game Site Logo">
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Banner Section -->
+    <section class="main-banner">
+        <div class="banner-content">
+            <h1>Discover the Best Games On Kidarh Games</h1>
+            <p>Download the latest and greatest games available now.</p>
+            <a href="games.html" class="btn download-btn">Get games</a>
+            <a href="about.html" class="btn learn-more-btn">Learn More</a>
+        </div>
+    </section>
+
+
+    <!-- Featured Games Carousel -->
+    <section id="featured" class="carousel">
+        <marquee behavior="scroll" direction="left"><h2>Featured Games</h2></marquee>
+        <div class="carousel-container">
+            <div class="slide"><img src="https://i.pinimg.com/236x/b6/51/a6/b651a64c46cc0d224b29eb20fe9e7911.jpg" alt="Game 1"><p>SPLINTER CELL</p></div>
+            <div class="slide"><img src="https://i.pinimg.com/236x/69/ae/13/69ae139d852b86154f1576de9472d8b5.jpg" alt="Game 2"><p>FARCRY 6</p></div>
+            <div class="slide"><img src="https://i.pinimg.com/236x/0c/7c/51/0c7c511d366a7cd776431b935753a4a4.jpg" alt="Game 3"><p>GOD OF WAR RAGNAROK</p></div>
+            <div class="slide"><img src="https://i.pinimg.com/236x/44/fa/dd/44fadd528805a6aa343d25409a7390ce.jpg" alt="Game 3"><p>GTA</p></div>
+            <div class="slide"><img src="https://i.pinimg.com/236x/23/16/73/2316733d0867143ee79f92ddea34f1cc.jpg" alt="Game 3"><p></p></div>
+            <div class="slide"><img src="https://i.pinimg.com/474x/a4/08/c5/a408c5248f2c7d845ace6a86ff3162d5.jpg" alt="Game 3"><p>EA FC 24</p></div>
+            <div class="slide"><img src="https://i.pinimg.com/474x/d0/ac/40/d0ac40580754093d0d9647f6b9620a79.jpg" alt="Game 3"><p></p></div>
+            <div class="slide"><img src="https://i.pinimg.com/236x/2d/7a/cd/2d7acdca3698bb3cad9b8021c5068cbd.jpg" alt="Game 3"><p>FARCRY 4</p></div>
+            <div class="slide"><img src="https://i.pinimg.com/236x/23/3b/28/233b289a950ed1bc1da2096e87550a06.jpg" alt="Game 3"><p>CALL OF DUTY</p></div>
+        </div>
+    </section>
+
+
+    <!-- Popular Games Section -->
+    <section id="games" class="games-section">
+        <h2>Popular Games</h2>
+        <div class="games-grid">
+            <div class="game-item">
+                <img src="https://i.pinimg.com/236x/6c/5a/83/6c5a83032e4ee384e57527ceb4dcbf4d.jpg" alt="Game 4">
+                <div class="game-info">
+                <h3>MORTAL KOMBAT</h3>
+                <p1>Defend your realm in this action packed and engaging game</p1>
+            </div>
+            <div class="description-box">
+                <p>ACTION PACKED-ADVENTURE AND FAST PACE ACTION TO KEEP YOU AT THE EDGE OF YOUR SEAT</p>
+                <div class="arrow-down"></div>
+                <a href="games.html" class="btn">GET NOW</a>
+            </div>
+               
+            </div>
+            <div class="game-item">
+                <img src="https://i.pinimg.com/474x/5f/6c/be/5f6cbe5db3734744b9ab4e8f70af0239.jpg" alt="Game 5">
+                <div class="game-info">
+                <h3>TEKKEN 8</h3>
+                <p2>IMMERSE YOURSELF INTO THE EXCITING WORLD OF ACCTION PACKED ARCADE STYLE OF GAMING</p2>
+            </div>
+            <div class="description-box">
+                <p>IT OFFERS A THRILLING EXPERIENCE WITH MIND-BLOWING HIGH ACTION STORY MODE</p>
+                <div class="arrow-down"></div>
+                <a href="games.html" class="btn">GET NOW</a>
+            </div>
+            </div>
+            <div class="game-item">
+                <img src="https://i.pinimg.com/236x/bb/72/e7/bb72e70c48e3c9eea5fa19463cb0414a.jpg" alt="Game 6">
+                <div class="game-info">
+                <h3>STREET FIGHTER 6</h3>
+                <p3>STREET FIGHTER 6 ONE OF THE MOST EXCITING ARCADE GAMES IN ITS FRANCHISE</p3>
+            </div>
+                <div class="description-box">
+                    <p>Immerse yourself in the epic world of gaming with intense battles!</p>
+                    <div class="arrow-down"></div>
+                    <a href="games.html" class="btn">GET NOW</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ 
+
+    <!-- Footer with Social Media Icons -->
+    <footer>
+        <p>Follow us on:</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.twitter.com"> <i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com"> <i class="fab fa-instagram"></i></a>
+        </div>
+        <p>© 2024 Kidarh Games. All rights reserved. | <a href="privacy.html">Privacy Policy</a></p>
+    </footer>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>

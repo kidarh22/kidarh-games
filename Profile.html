@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background-color: #1a1a1a; color: #f8f9fa; }
+    .container { margin-top: 3rem; animation: fadeIn 1.5s ease; }
+    .form-control, .btn-primary { background-color: #333; color: #f8f9fa; }
+    .alert { display: none; animation: fadeInUp 1s ease; }
+    .profile-picture { max-width: 150px; border-radius: 50%; margin-bottom: 1rem; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes fadeInUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  </style>
+</head>
+<body>
+    <div class="container text-center mt-4">
+        <a href="index.html" class="btn btn-light btn-lg">Home</a>
+      </div>
+
+<div class="container">
+  <h2 class="text-center">User Profile</h2>
+  <!-- Profile Picture -->
+  <div class="text-center">
+    <img id="profileImage" src="https://via.placeholder.com/150" alt="Profile Picture" class="profile-picture">
+    <input type="file" id="uploadImage" accept="image/*" style="display: none;" capture>
+    <button class="btn btn-secondary" onclick="document.getElementById('uploadImage').click();">Upload Photo</button>
+  </div>
+  <!-- Form -->
+  <form id="profileForm">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" id="username" placeholder="Enter your username" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+    </div>
+    <div class="form-group">
+      <label for="location">Location</label>
+      <input type="text" class="form-control" id="location" placeholder="Enter your location">
+    </div>
+    <div class="form-group">
+      <label for="bio">Bio</label>
+      <textarea class="form-control" id="bio" rows="3" placeholder="Tell us about yourself"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="themeColor">Theme Color</label>
+      <input type="color" class="form-control" id="themeColor" value="#ffffff">
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Update Profile</button>
+  </form>
+
+  <!-- Success and Error Messages -->
+  <div id="successMessage" class="alert alert-success mt-3">Profile updated successfully!</div>
+  <div id="errorMessage" class="alert alert-danger mt-3">There was an error updating your profile. Try again.</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Show success or error messages
+  $(document).ready(function() {
+    $('#profileForm').on('submit', function(event) {
+      event.preventDefault();
+
+      const success = Math.random() > 0.5;
+
+      if (success) {
+        $('#successMessage').fadeIn().delay(2000).fadeOut();
+      } else {
+        $('#errorMessage').fadeIn().delay(2000).fadeOut();
+      }
+    });
+
+    // Profile Image Upload
+    $('#uploadImage').change(function(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          $('#profileImage').attr('src', e.target.result);
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

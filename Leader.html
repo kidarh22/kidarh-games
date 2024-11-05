@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #1e1e2f;
+            color: #f1f1f1;
+            font-family: Arial, sans-serif;
+        }
+        .leaderboard {
+            margin: 20px auto;
+            max-width: 800px;
+            background-color: #2c2c3a;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+        }
+        .leaderboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .player-entry {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .player-entry:hover {
+            background-color: #444;
+        }
+        .rank {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        .score {
+            font-size: 1.1rem;
+        }
+        .btn-custom {
+            background-color: #007bff;
+            border-color: #007bff;
+            color: #fff;
+        }
+        .btn-custom:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="leaderboard">
+        <!-- Leaderboard Header -->
+        <div class="leaderboard-header">
+            <h2>Leaderboard</h2>
+            <div class="input-group" style="width: 200px;">
+                <input type="text" class="form-control" id="searchInput" placeholder="Search players">
+            </div>
+        </div>
+
+        <!-- Sort Options -->
+        <div class="d-flex justify-content-between mb-3">
+            <button class="btn btn-custom" onclick="sortLeaderboard('rank')">Sort by Rank</button>
+            <button class="btn btn-custom" onclick="sortLeaderboard('score')">Sort by Score</button>
+        </div>
+
+        <!-- Leaderboard Entries -->
+        <div id="leaderboardEntries">
+            <!-- Player entries will be populated here -->
+        </div>
+
+        <!-- Load More Button -->
+        <div class="text-center mt-4">
+            <button class="btn btn-secondary" onclick="loadMorePlayers()">Load More</button>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    // Sample data for leaderboard entries
+    let players = [
+        { rank: 1, name: "Player1", score: 9500 },
+        { rank: 2, name: "Player2", score: 8900 },
+        { rank: 3, name: "Player3", score: 8500 },
+        { rank: 4, name: "Player4", score: 7800 },
+        { rank: 5, name: "Player5", score: 7600 },
+        { rank: 6, name: "Player6", score: 7400 },
+        { rank: 7, name: "Player7", score: 7200 },
+        { rank: 8, name: "Player8", score: 6900 },
+        { rank: 9, name: "Player9", score: 6800 },
+        { rank: 10, name: "Player10", score: 6500 },
+    ];
+    let displayedPlayers = 5; // Initial players to display
+
+    function displayLeaderboard() {
+        const leaderboardEntries = document.getElementById("leaderboardEntries");
+        leaderboardEntries.innerHTML = ""; // Clear existing entries
+
+        players.slice(0, displayedPlayers).forEach(player => {
+            const playerEntry = document.createElement("div");
+            playerEntry.className = "player-entry";
+
+            playerEntry.innerHTML = `
+                <div class="rank">${player.rank}</div>
+                <div class="name">${player.name}</div>
+                <div class="score">${player.score}</div>
+            `;
+            leaderboardEntries.appendChild(playerEntry);
+        });
+    }
+
+    function sortLeaderboard(criteria) {
+        if (criteria === 'rank') {
+            players.sort((a, b) => a.rank - b.rank);
+        } else if (criteria === 'score') {
+            players.sort((a, b) => b.score - a.score);
+        }
+        displayLeaderboard();
+    }
+
+    function loadMorePlayers() {
+        displayedPlayers += 5;
+        displayLeaderboard();
+    }
+
+    // Search functionality
+    document.getElementById("searchInput").addEventListener("input", function() {
+        const searchText = this.value.toLowerCase();
+        const filteredPlayers = players.filter(player => player.name.toLowerCase().includes(searchText));
+        const leaderboardEntries = document.getElementById("leaderboardEntries");
+        leaderboardEntries.innerHTML = "";
+
+        filteredPlayers.slice(0, displayedPlayers).forEach(player => {
+            const playerEntry = document.createElement("div");
+            playerEntry.className = "player-entry";
+
+            playerEntry.innerHTML = `
+                <div class="rank">${player.rank}</div>
+                <div class="name">${player.name}</div>
+                <div class="score">${player.score}</div>
+            `;
+            leaderboardEntries.appendChild(playerEntry);
+        });
+    });
+
+    // Initialize display
+    displayLeaderboard();
+</script>
+
+</body>
+</html>

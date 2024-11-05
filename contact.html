@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Kidarh Games.co</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #121212;
+      color: white;
+    }
+
+    .contact-section {
+      padding: 60px 0;
+    }
+
+    .contact-section h1 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      color: #f8f9fa;
+    }
+
+    .contact-form {
+      background-color: #1f1f1f;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .contact-form label {
+      color: #bbb;
+    }
+
+    .form-control {
+      background-color: #2c2c2c;
+      border: none;
+      color: white;
+    }
+
+    .form-control:focus {
+      background-color: #2c2c2c;
+      border: 1px solid #f8f9fa;
+      box-shadow: none;
+    }
+
+    .btn-custom {
+      background-color: #f05454;
+      border: none;
+      padding: 10px 20px;
+      font-size: 18px;
+      color: #fff;
+      border-radius: 5px;
+    }
+
+    .btn-custom:hover {
+      background-color: #e84343;
+    }
+
+    .social-icons a {
+      color: #f05454;
+      font-size: 30px;
+      margin-right: 15px;
+      text-decoration: none;
+    }
+
+    .social-icons a:hover {
+      color: #fff;
+    }
+
+    .footer {
+      background-color: #1f1f1f;
+      text-align: center;
+      padding: 20px;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center">
+                    <h1>Contact Us</h1>
+                    <p class="mb-5">We're here to help! Reach out to us for any questions or feedback.</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form class="contact-form" action="https://formspree.io/f/mldeevbj " method="POST">
+                        <div class="mb-3">
+                            <label for="name">Your Name</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email">Email Address</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message">Your Message</label>
+                            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-custom w-100">Send Message</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row mt-5 justify-content-center">
+                <div class="col-md-6 text-center">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

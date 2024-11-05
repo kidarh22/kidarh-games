@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure Games</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body{
+            background-color: #000000e7;
+        }
+        .game-grid img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.2s ease;
+        }
+        .game-grid img:hover {
+            transform: scale(1.05);
+        }
+        .search-bar {
+            margin: 20px auto;
+        }
+        .game-item {
+            margin-bottom: 30px;
+        }
+        footer {
+            background-color: #222;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        footer a {
+            color: #ddd;
+            text-decoration: none;
+        }
+        footer a:hover {
+            color: #fff;
+        }
+        .download-btn {
+            margin-top: 10px;
+            background-color: #ff4500;
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .download-btn:hover {
+            background-color: #ff6347;
+        }
+        h5{
+            color: white;
+        }
+        p{
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Search Bar -->
+    <div class="container search-bar">
+        <input id="searchInput" class="form-control" type="text" placeholder="Search Adventure Games">
+    </div>
+
+    <!-- Game Grid -->
+    <div class="container game-grid">
+        <div class="row" id="gameGrid">
+            <div class="col-md-3 game-item" data-game="Uncharted 4">
+                <img src="https://i.pinimg.com/236x/3b/61/c5/3b61c529c01ba8af8f984bc30e4a5df4.jpg" alt="Uncharted 4">
+                <h5>Uncharted 4</h5>
+                <p>An epic adventure game exploring lost treasures.</p>
+                <a href="https://www.playstation.com/en-us/games/uncharted-4-a-thiefs-end/" class="download-btn">Download</a>
+            </div>
+            <div class="col-md-3 game-item" data-game="Assassin's Creed Valhalla">
+                <img src="https://i.pinimg.com/236x/64/ce/d9/64ced9cea326efadf37f1d30d6b1abf8.jpg" alt="Assassin's Creed Valhalla">
+                <h5>Assassin's Creed Valhalla</h5>
+                <p>A Viking-themed action-adventure game.</p>
+                <a href="https://www.playstation.com/en-us/games/assassins-creed-valhalla/" class="download-btn">Download</a>
+            </div>
+            <div class="col-md-3 game-item" data-game="Horizon Zero Dawn">
+                <img src="https://i.pinimg.com/236x/4e/b3/de/4eb3dec0dbf975422387aba39a939d8f.jpg" alt="Horizon Zero Dawn">
+                <h5>Horizon Zero Dawn</h5>
+                <p>Embark on a journey through a post-apocalyptic world.</p>
+                <a href="https://www.playstation.com/en-us/games/horizon-zero-dawn/" class="download-btn">Download</a>
+            </div>
+            <div class="col-md-3 game-item" data-game="A way out">
+                <img src="https://i.pinimg.com/236x/16/8b/27/168b273ca38481e4b1d25bede3607021.jpg" alt="Breath of the Wild">
+                <h5>A way out</h5>
+                <p>Explore a vast open world filled with adventure.</p>
+                <a href="https://store.epicgames.com/en-US/p/a-way-out-635680" class="download-btn">Download</a>
+            </div>
+            <div class="col-md-3 game-item" data-game="Ghost of tsushima">
+                <img src="https://i.pinimg.com/enabled_lo/236x/24/9c/f5/249cf5c68ef58a4c0e6e886f52397d0d.jpg" alt="Breath of the Wild">
+                <h5>Ghost of tsushima</h5>
+                <p>Pick up a sword and fight for whats right</p>
+                <a href="https://www.playstation.com/en-us/games/ghost-of-tsushima/legends/" class="download-btn">Download</a>
+            </div>
+            <div class="col-md-3 game-item" data-game="Shadow of the Colossus">
+                <img src="https://i.pinimg.com/236x/60/74/0b/60740b92ed1d9a5d548a6b9592ac345d.jpg" alt="Breath of the Wild">
+                <h5>Shadow of the Colossus</h5>
+                <p>Become a warrior</p>
+                <a href="https://www.playstation.com/en-us/games/shadow-of-the-colossus/" class="download-btn">Download</a>
+            </div>
+            <div class="col-md-3 game-item" data-game="Sekiro: Shadows Die Twice">
+                <img src="https://i.pinimg.com/236x/df/53/88/df538832dfe1c6f849f3f914071f3c41.jpg" alt="Breath of the Wild">
+                <h5>Sekiro: Shadows Die Twice</h5>
+                <p>A vast open world game for you and your friends to enjoy</p>
+                <a href="https://www.playstation.com/en-us/games/sekiro-shadows-die-twice/" class="download-btn">Download</a>
+            </div>
+            <div class="col-md-3 game-item" data-game="Marvel's Guardians of the Galaxy">
+                <img src="https://i.pinimg.com/236x/bb/59/b8/bb59b8c9fe91b3f39bc03cd082d9e965.jpg" alt="Breath of the Wild">
+                <h5>Marvel's Guardians of the Galaxy</h5>
+                <p>Become a guardian and protect the Galaxy</p>
+                <a href="https://www.playstation.com/en-us/games/marvels-guardians-of-the-galaxy/" class="download-btn">Download</a>
+            </div>
+            <div class="col-md-3 game-item" data-game="GTA V">
+                <img src="https://i.pinimg.com/enabled_lo/236x/a1/c7/fc/a1c7fcc4a98091aa4dfbd9e3ff07e98b.jpg" alt="Breath of the Wild">
+                <h5>GTA V</h5>
+                <p>Welcome to beautiful LA</p>
+                <a href="https://www.playstation.com/en-us/games/grand-theft-auto-v/" class="download-btn">Download</a>
+            </div>
+            <div class="col-md-3 game-item" data-game="Yakuza: Like a Dragon">
+                <img src="https://i.pinimg.com/236x/63/b3/e1/63b3e12c4ebdb5669abff32a231c7f51.jpg" alt="Breath of the Wild">
+                <h5>Yakuza: Like a Dragon</h5>
+                <p>Be filled with the heart of a warrior in the heat of war</p>
+                <a href="https://www.playstation.com/en-us/games/yakuza-like-a-dragon/" class="download-btn">Download</a>
+            </div>
+            <div class="col-md-3 game-item" data-game="Kena: Bridge of Spirits">
+                <img src="https://i.pinimg.com/236x/25/65/1e/25651e2fbbe6c1d89d8f43210f9492b3.jpg" alt="Breath of the Wild">
+                <h5>Kena: Bridge of Spirits</h5>
+                <p>Explore the beautiful scenes in this open world game</p>
+                <a href="https://www.playstation.com/en-us/games/kena-bridge-of-spirits/meet-the-rot-kena-bridge-of-spirits-cute-sidekick-creatures/" class="download-btn">Download</a>
+            </div>
+            <div class="col-md-3 game-item" data-game="Returnal">
+                <img src="https://i.pinimg.com/736x/a9/0a/97/a90a97fa198b0c9436c4b4270e31b511.jpg" alt="Breath of the Wild">
+                <h5>Returnal</h5>
+                <p>Be the hero you were born to be</p>
+                <a href="https://www.playstation.com/en-us/games/returnal/" class="download-btn">Download</a>
+            </div>
+            <div class="col-md-3 game-item" data-game="Concrete Genie">
+                <img src="https://i.pinimg.com/236x/33/d5/6f/33d56f611f9789c29846cb66c8e28871.jpg" alt="Breath of the Wild">
+                <h5>Concrete Genie</h5>
+                <p>Paint life into a drab town with magical art.</p>
+                <a href="https://www.playstation.com/en-us/games/concrete-genie/" class="download-btn">Download</a>
+            </div>
+            <div class="col-md-3 game-item" data-game="Sea of Solitude">
+                <img src="https://i.pinimg.com/236x/bc/9a/c5/bc9ac5af7242a8e8ecf03c9023406bdb.jpg" alt="Breath of the Wild">
+                <h5>Sea of Solitude</h5>
+                <p>Explore the human mind through metaphorical monsters.</p>
+                <a href="https://www.playstation.com/en-us/games/sea-of-stars/" class="download-btn">Download</a>
+            </div>
+            <div class="col-md-3 game-item" data-game="Shadow of the Colossus (Remake) ">
+                <img src="https://i.pinimg.com/236x/07/db/bc/07dbbce2e5725470e19c211435380baa.jpg" alt="Breath of the Wild">
+                <h5>Shadow of the Colossus (Remake) </h5>
+                <p>Defeat towering beasts in a desolate land.</p>
+                <a href="https://www.playstation.com/en-us/games/shadow-of-the-colossus/" class="download-btn">Download</a>
+            </div>
+            <div class="col-md-3 game-item" data-game="The Last Guardian ">
+                <img src="https://i.pinimg.com/474x/3a/0a/17/3a0a17f8ab78b20cdd62779ca9302918.jpg" alt="Breath of the Wild">
+                <h5>The Last Guardian</h5>
+                <p> Bond with a giant creature in a mysterious world.</p>
+                <a href="https://www.playstation.com/en-us/games/the-last-guardian/" class="download-btn">Download</a>
+            </div>
+            <div class="col-md-3 game-item" data-game="Raji: An Ancient Epic">
+                <img src="https://i.pinimg.com/236x/b0/fa/95/b0fa95b3e93aa9e4348b6c328f28fe34.jpg" alt="Breath of the Wild">
+                <h5>Raji: An Ancient Epic</h5>
+                <p>Journey through ancient Indian myth.</p>
+                <a href="https://www.playstation.com/en-us/games/raji-an-ancient-epic/" class="download-btn">Download</a>
+            </div>
+            <div class="col-md-3 game-item" data-game="Solar Ash">
+                <img src="https://i.pinimg.com/236x/ae/a8/6e/aea86ef5200fbe6c4c331693a5aad31f.jpg" alt="Breath of the Wild">
+                <h5>Solar Ash</h5>
+                <p> Explore vibrant alien worlds with skating mechanics.</p>
+                <a href="https://www.playstation.com/en-us/games/solar-ash/" class="download-btn">Download</a>
+            </div>
+            <div class="col-md-3 game-item" data-game="Manifold Garden">
+                <img src="https://i.pinimg.com/236x/94/46/89/9446894bab82ba1d80f4c85f4399d356.jpg" alt="Breath of the Wild">
+                <h5>Manifold Garden</h5>
+                <p>Explore infinite physics and architecture.</p>
+                <a href="https://www.playstation.com/en-us/games/manifold-garden/" class="download-btn">Download</a>
+            </div>
+            <div class="col-md-3 game-item" data-game="Hyper Light Drifter">
+                <img src="https://i.pinimg.com/236x/75/2a/64/752a64aab11c7c08181eb63f90ee22d2.jpg" alt="Breath of the Wild">
+                <h5>Hyper Light Drifter</h5>
+                <p> Fast-paced action and vibrant exploration.</p>
+                <a href="https://store.epicgames.com/en-US/p/hyper-light-drifter" class="download-btn">Download</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Kidarh Games Co. All rights reserved.</p>
+        <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+    </footer>
+
+    <script>
+        document.getElementById('searchInput').addEventListener('input', function () {
+            let searchValue = this.value.toLowerCase();
+            let games = document.querySelectorAll('.game-item');
+            games.forEach(function (game) {
+                let gameTitle = game.getAttribute('data-game').toLowerCase();
+                if (gameTitle.includes(searchValue)) {
+                    game.style.display = 'block';
+                } else {
+                    game.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RPG Games</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body{
+        background-color: #000000e1;
+    }
+    .game-grid img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.3s ease;
+    }
+
+    .game-grid img:hover {
+      transform: scale(1.05);
+    }
+
+    .download-btn {
+      background-color: #6c63ff;
+      color: white;
+      border-radius: 20px;
+      padding: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .download-btn:hover {
+      background-color: #5b54d2;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .footer-dark {
+      background-color: #222;
+      color: white;
+    }
+    h5{
+        color: white;
+    }
+    p{
+        color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Search Bar -->
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-12">
+        <input id="searchBar" class="form-control" type="text" placeholder="Search for RPG games...">
+      </div>
+    </div>
+  </div>
+
+  <!-- Game Grid -->
+  <div class="container mt-4">
+    <div class="row game-grid" id="gameGrid">
+      <div class="col-md-3 mb-4" data-name="The Witcher 3">
+        <img src="https://i.pinimg.com/enabled_lo/236x/8e/1a/1a/8e1a1a3913fd44a2188dac98602a7a81.jpg" alt="The Witcher 3">
+        <h5>The Witcher 3</h5>
+        <p>An epic RPG journey through a vast, dangerous world.</p>
+        <a href="https://www.playstation.com/en-us/games/the-witcher-3-wild-hunt/" class="btn download-btn">Download</a>
+      </div>
+      <div class="col-md-3 mb-4" data-name="Skyrim">
+        <img src="https://i.pinimg.com/enabled_lo/236x/44/04/91/44049130024ab825525ecc1e0d124588.jpg" alt="Skyrim">
+        <h5>Skyrim</h5>
+        <p>Explore an ancient world filled with adventure and magic.</p>
+        <a href="https://www.playstation.com/en-us/games/the-elder-scrolls-v-skyrim/" class="btn download-btn">Download</a>
+      </div>
+      <div class="col-md-3 mb-4" data-name="Elden Ring ">
+        <img src="https://i.pinimg.com/enabled_lo/236x/e8/db/1d/e8db1d01cfa8c52561c2631f48321cc7.jpg" alt="Final Fantasy XV">
+        <h5>Elden Ring </h5>
+        <p>From the creators of Dark Souls, an open-world action RPG with deep lore and challenging combat.</p>
+        <a href="https://www.playstation.com/en-us/games/elden-ring/" class="btn download-btn">Download</a>
+      </div>
+      
+      <div class="col-md-3 mb-4" data-name="Persona 5 Royal">
+        <img src="https://i.pinimg.com/enabled_lo/236x/25/69/de/2569dee827016021bd1b75d0fd18ad6b.jpg" alt="Final Fantasy XV">
+        <h5>Persona 5 Royal</h5>
+        <p> A stylish JRPG about high school students who become vigilantes.</p>
+        <a href="https://www.playstation.com/en-us/games/persona-5-royal/" class="btn download-btn">Download</a>
+      </div>
+      
+      <div class="col-md-3 mb-4" data-name="Cyberpunk 2077">
+        <img src="https://i.pinimg.com/236x/d4/70/19/d470194f2d9f151e62d91eda0a10513d.jpg" alt="Final Fantasy XV">
+        <h5>Cyberpunk 2077</h5>
+        <p>A futuristic open-world RPG with a rich story and player-driven choices.</p>
+        <a href="https://www.playstation.com/en-us/games/cyberpunk-2077/phantom-liberty/" class="btn download-btn">Download</a>
+      </div>
+      
+      <div class="col-md-3 mb-4" data-name="Demon's Souls (PS5 Remake)">
+        <img src="https://i.pinimg.com/enabled_lo/236x/c9/bb/25/c9bb25fbe0961eb7e08816c36128b86c.jpg" alt="Final Fantasy XV">
+        <h5>Demon's Souls (PS5 Remake)</h5>
+        <p>A challenging RPG with gothic environments and punishing combat.</p>
+        <a href="https://www.playstation.com/en-us/games/demons-souls/" class="btn download-btn">Download</a>
+      </div>
+      
+      <div class="col-md-3 mb-4" data-name="Dragon Age: Inquisition">
+        <img src="https://i.pinimg.com/236x/06/a0/c9/06a0c9cf6b6f526d4f12fa5960bfad7a.jpg" alt="Final Fantasy XV">
+        <h5>Dragon Age: Inquisition</h5>
+        <p>A beautiful RPG with an emotional storyline and epic battles.</p>
+        <a href="https://www.playstation.com/en-us/games/dragon-age-inquisition/" class="btn download-btn">Download</a>
+      </div>
+      
+      <div class="col-md-3 mb-4" data-name="Bloodborne">
+        <img src="https://i.pinimg.com/236x/f6/58/62/f65862eaed4571f203243a6249dd51b8.jpg" alt="Final Fantasy XV">
+        <h5>Bloodborne</h5>
+        <p>A fast-paced, gothic horror RPG from the makers of Dark Souls.
+        </p>
+        <a href="https://www.playstation.com/en-us/games/bloodborne/" class="btn download-btn">Download</a>
+      </div>
+      
+      <div class="col-md-3 mb-4" data-name="Tales of Arise">
+        <img src="https://i.pinimg.com/236x/ca/26/47/ca26478d7ebaab4e2ced44a0682c0fcd.jpg" alt="Final Fantasy XV">
+        <h5>Tales of Arise</h5>
+        <p>A vibrant action JRPG with deep characters and stunning graphics.</p>
+        <a href="https://www.playstation.com/en-us/games/tales-of-arise/" class="btn download-btn">Download</a>
+      </div>
+      
+      <div class="col-md-3 mb-4" data-name="Monster Hunter: World">
+        <img src="https://i.pinimg.com/236x/d8/17/f0/d817f0acc462dc8ee54c2759764f599c.jpg" alt="Final Fantasy XV">
+        <h5>Monster Hunter: World</h5>
+        <p> Hunt massive creatures in a sprawling open-world RPG.</p>
+        <a href="https://www.playstation.com/en-us/games/monster-hunter-world/" class="btn download-btn">Download</a>
+      </div>
+      
+      <div class="col-md-3 mb-4" data-name="Dark Souls III ">
+        <img src="https://i.pinimg.com/236x/c6/21/5d/c6215dbee3ea8a4ac84f1752e56c0153.jpg" alt="Final Fantasy XV">
+        <h5>Dark Souls III</h5>
+        <p>A punishing action RPG with a haunting atmosphere and deep lore.</p>
+        <a href="https://www.playstation.com/en-us/games/dark-souls-iii/" class="btn download-btn">Download</a>
+      </div>
+      
+      <div class="col-md-3 mb-4" data-name="Mass Effect: Legendary Edition">
+        <img src="https://i.pinimg.com/236x/59/20/1c/59201cb30413839d9a60452c3c6dc0f1.jpg" alt="Final Fantasy XV">
+        <h5>Mass Effect: Legendary Edition</h5>
+        <p>A remastered sci-fi RPG trilogy where your choices shape the universe.</p>
+        <a href="https://www.playstation.com/en-us/games/mass-effect-legendary-edition/" class="btn download-btn">Download</a>
+      </div>
+      
+      <div class="col-md-3 mb-4" data-name="Diablo II: Resurrected">
+        <img src="https://i.pinimg.com/236x/6d/eb/59/6deb59a726c46c0bd4d18f59caf3ab74.jpg" alt="Final Fantasy XV">
+        <h5>Diablo II: Resurrected</h5>
+        <p>A remaster of the classic dark fantasy action RPG</p>
+        <a href="https://www.playstation.com/en-us/games/diablo-ii-resurrected/" class="btn download-btn">Download</a>
+      </div>
+      
+      <div class="col-md-3 mb-4" data-name="Valkyria Chronicles 4">
+        <img src="https://i.pinimg.com/236x/ad/84/c6/ad84c6cff6a48a9ca0543c5a96746341.jpg" alt="Final Fantasy XV">
+        <h5>Valkyria Chronicles 4</h5>
+        <p>A tactical RPG with anime-styled graphics and engaging combat mechanics.</p>
+        <a href="https://www.playstation.com/en-us/games/valkyria-chronicles-4/" class="btn download-btn">Download</a>
+      </div>
+      
+      <div class="col-md-3 mb-4" data-name="Octopath Traveler II">
+        <img src="https://i.pinimg.com/236x/f5/bb/be/f5bbbece06c4a8086428643e59ec8f99.jpg" alt="Final Fantasy XV">
+        <h5>Octopath Traveler II</h5>
+        <p>A unique RPG with eight protagonists, each with their own journey.</p>
+        <a href="https://www.playstation.com/en-us/games/octopath-traveler-ii/" class="btn download-btn">Download</a>
+      </div>
+      
+      <div class="col-md-3 mb-4" data-name="Atelier Ryza 2">
+        <img src="https://i.pinimg.com/236x/7d/e1/1c/7de11cf8853252c30bb7a0a53b4db2c1.jpg" alt="Final Fantasy XV">
+        <h5>Atelier Ryza 2</h5>
+        <p>A charming RPG where alchemy plays a central role in exploration and combat.</p>
+        <a href="https://www.playstation.com/en-us/games/atelier-sophie-2-the-alchemist-of-the-mysterious-dream/" class="btn download-btn">Download</a>
+      </div>
+      <!-- More Games -->
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer-dark">
+    <div class="container">
+      <p>&copy; 2024 RPG Games. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const searchBar = document.getElementById('searchBar');
+    const gameGrid = document.getElementById('gameGrid');
+    searchBar.addEventListener('input', function() {
+      const searchQuery = searchBar.value.toLowerCase();
+      const games = gameGrid.getElementsByClassName('col-md-3');
+      Array.from(games).forEach(function(game) {
+        const gameName = game.getAttribute('data-name').toLowerCase();
+        if (gameName.includes(searchQuery)) {
+          game.style.display = 'block';
+        } else {
+          game.style.display = 'none';
+        }
+      });
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
